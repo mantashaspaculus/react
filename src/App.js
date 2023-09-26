@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Components/Home/Home';
+import About from './Components/About/About';
+import Insight from './Components/Insight';
+import SinglePost from './Components/SinglePost';
+import SingleService from './Components/SingleService';
+import Services from './Components/Services';
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Insight" element={<Insight />} />
+          <Route path="/post/:postSlug" element={<SinglePost />}/>
+          <Route path="/Insight" element={<Services />} />
+
+          <Route path="/service/:postSlug" element={<SingleService />}/>
+
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
+
 
 export default App;
